@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <%= stylesheet_link_tag "application", media: "all",
+    "data-turbolinks-track": true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track": true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div id="wrapper">
+    <div id="hearder">
+      <div id="main-nav" role="navigation" class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">Admin</a>
+          <button aria-expanded="false" aria-controls="nav-left" data-target="#nav-left" data-toggle="collapse" type="button" class="navbar-toggle collapsed">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <ul class="navbar-right nav top-nav">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="glyphicon glyphicon-user"></i>anh khang<b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="#"><i class="glyphicon glyphicon-user"></i> Hồ sơ</a>
+              </li>
+              <li>
+                <a href="#"><i class="glyphicon glyphicon-cog"></i> Cài đặt</a>
+              </li>
+              <li>
+                <a href="#"><i class="glyphicon glyphicon-off"></i> Đăng xuất</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <div id="nav-left" class="collapse navbar-collapse navbar-ex1-collapse">
+          <ul id="nav-sider-left" class="nav navbar-nav side-nav csnav-side menu-bar">
+            <li>
+              <a href="#" class="nav-urlmanager" data-url="">
+                <span>Ý kiến đóng góp</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="nav-urlmanager" data-url="">
+                <span>Ý kiến đóng góp</span>
+              </a>
+              <ul>
+                <li>
+                  <a href="#" class="nav-urlmanager">Tạo hóa đơn</a>
+                </li>
+                <li>
+                  <a href="#" class="nav-urlmanager">Danh sách hóa đơn</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div id="main-content">
+      <%= yield %>
+    </div>
+
+    <div id="msg" class="alert alert-success alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <span>Warning!</span>
+    </div>
+  </div>
+</body>
+</html>
