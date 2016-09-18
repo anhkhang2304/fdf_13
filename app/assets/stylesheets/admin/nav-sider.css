@@ -1,0 +1,102 @@
+.csnav-side,.csnav-side ul,.csnav-side li {
+  padding: 0;
+  list-style: none;
+}
+i.arrow:hover, i.arrow-open:hover
+{
+  color:#fff;
+}
+.menu-bar a
+{
+  cursor: pointer;
+}
+.removecollapse
+{
+  display:block !important;
+  visibility: hidden !important;
+  position: absolute !important;
+}
+.csnav-side > li > a
+{
+  border-top: 1px solid #5c5c5c;
+}
+.menu-bar > li > a
+{
+  color: #fff !important;
+}
+.csnav-side a {
+  border: 0 none;
+  display: block;
+  font-size: 14px;
+  font-weight: 300;
+  margin: 0;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+  line-height:1.3em;
+  position: relative;
+  text-decoration: none;
+  color: #fff;
+}
+.csnav-side i
+{
+  color:#fff;
+}
+.csnav-side a:hover + i{
+  color: #fff;
+}
+.menu-bar a:not(.nav-active):hover{
+  text-decoration: none;
+  outline: 0;
+  color: #fff;
+  background-color: #303030 !important;
+}
+.csnav-side  > li > a {
+  padding-left: 10px;
+}
+.csnav-side  > li > ul > li > a {
+  padding-left: 30px;
+}
+.csnav-side  > li > ul > li > ul > li > a{
+  padding-left: 50px;
+}
+.csnav-side  > li > ul > li > ul > li > ul > li > a{
+  padding-left: 70px;
+}
+.csnav-side  > li > ul > li > ul > li > ul > li > ul > li > a{
+  padding-left: 90px;
+}
+.csnav-side  > li > ul > li > ul > li > ul > li > ul > li > ul > li > a{
+  padding-left: 110px;
+}
+.csnav-side li > .arrow-open:before,.csnav-side li > .arrow:before {
+  position: absolute;
+  z-index: 4000;
+  cursor: pointer;
+}
+.menu-bar a.nav-active
+{
+  background-color: #e02222 !important;
+  outline: 0 !important;
+  text-decoration:none !important;
+  color: #fff !important;
+}
+a.nav-active +i
+{
+  color: #fff !important;
+}
+.csnav-side li
+{
+  position: relative;
+
+}
+.csnav-side li > .arrow-open, .csnav-side li > .arrow
+{
+  position:absolute;
+  right:0;
+  top:0;
+  width: 24px;
+}
+.csnav-side li > .arrow-open:hover, .csnav-side li > .arrow:hover
+{
+  background-color: #fff;
+}
