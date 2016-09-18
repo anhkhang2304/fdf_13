@@ -12,9 +12,14 @@
  *
  * require_tree .
  *= require admin/nav-sider.css
+ *= require devise_bootstrap_views
  *= require admin/styleManager.css
  *= require_self
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
+
+.blue-icon i {
+  color: #428bca;
+}
