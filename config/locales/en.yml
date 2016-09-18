@@ -10,3 +10,21 @@ en:
   category:
     title: "Category"
   login_error: "Login error"
+  add: "Add"
+  edit: "Edit"
+  update: "Update"
+  delete: "Delete"
+  manager: "Manager"
+  keyword: "Keyword"
+  search: "Search"
+  ord: "Ord"
+  title: "Title"
+  created: "Created"
+  function: "Function"
+  sure: "You are sure?"
+  time:
+    formats:
+      short_datetime: "%B %d, %Y"
+      long_datetime:  "%B %d, %Y, at %r"
+  category:
+    title: "Category"
