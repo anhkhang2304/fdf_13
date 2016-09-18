@@ -9,3 +9,4 @@ en:
   welcome: "Welcome !"
   category:
     title: "Category"
+  login_error: "Login error"
