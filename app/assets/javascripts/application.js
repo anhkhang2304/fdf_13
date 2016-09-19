@@ -14,3 +14,9 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require bootstrap
+
+$(document).on('ready page:load', function(){
+  var $tagNav = $("#nav-sider-left");
+  $tagNav.navsider({ linkclick: true, cssClass: 'menu-bar', minHeight: 41 });
+});

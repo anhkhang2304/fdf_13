@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <%= stylesheet_link_tag "application", media: "all",
+    "data-turbolinks-track": true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track": true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div id="wrapper">
+    <div id="hearder">
+      <div id="main-nav" role="navigation"
+        class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/"><%= t "managersystem" %></a>
+          <button aria-expanded="false" aria-controls="nav-left" data-target="#nav-left"
+            data-toggle="collapse" type="button" class="navbar-toggle collapsed">
+            <span class="sr-only"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <ul class="navbar-right nav top-nav">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="glyphicon glyphicon-user"></i><b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="#"><i class="glyphicon glyphicon-user"></i>
+                  <%= t "profile" %>
+                </a>
+              </li>
+              <li>
+                <a href="#"><i class="glyphicon glyphicon-cog"></i>
+                  <%= t "setting" %>
+                </a>
+              </li>
+              <li>
+                <a href="#"><i class="glyphicon glyphicon-off"></i>
+                  <%= t "logout" %>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <div id="nav-left" class="collapse navbar-collapse navbar-ex1-collapse">
+          <ul id="nav-sider-left" class="nav navbar-nav side-nav csnav-side menu-bar">
+            <li>
+              <a href="#" class="nav-urlmanager" data-url="">
+                <span><%= t "category.title" %></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div id="main-content">
+      <%= yield %>
+    </div>
+
+    <div id="msg" class="alert alert-success alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true"></span>
+      </button>
+      <span><%= t "warning" %></span>
+    </div>
+  </div>
+</body>
+</html>
