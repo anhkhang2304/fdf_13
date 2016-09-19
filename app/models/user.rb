@@ -9,6 +9,9 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :orders
 
+  validates :name, presence: true, length: {maximum: 50}
+  validates :mobile, numericality: true, allow_blank: true
+
   def self.from_omniauth auth
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email

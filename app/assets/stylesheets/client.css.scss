@@ -92,11 +92,36 @@ color: white;
   list-style: none;
   text-align: right;
 }
-.header-top .content-top ul li  {
+.header-top .content-top ul li {
+  display: inline-block;
+  margin-right: 10px;
 }
 .header-top .content-top ul li a {
   color: #949595;
   font: normal 11px Arial;
   margin-top: 5px;
+  display: inline-block;
+}
+.header-top .content-top .header-user {
+
+}
+
+.container .content {
+  margin-top: 20px;
+}
+
+.panel .panel-body .title {
+  margin: 0;
+  padding: 5px 0;
+  border-bottom: 1px solid #e7ecf1;
+  clear: both;
   display: block;
+  overflow: hidden;
+}
+.panel .panel-body ul {
+
+}
+.panel .panel-body p {
+  font-style: italic;
+  display: inline-block;
 }

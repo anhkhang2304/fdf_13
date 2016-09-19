@@ -5,8 +5,10 @@ en:
   managersystem: "Manager Food and Drink"
   login: "Login"
   logout: " Logout"
+  edit: "Edit profile"
   warning: "Warning!"
   welcome: "Welcome !"
+  home: "Go shopping"
   category:
     title: "Category"
   login_error: "Login error"
@@ -24,7 +26,14 @@ en:
   sure: "You are sure?"
   time:
     formats:
-      short_datetime: "%B %d, %Y"
+      short_date: "%m/%d/%Y"
       long_datetime:  "%B %d, %Y, at %r"
   category:
     title: "Category"
+  user:
+    name: "Name:"
+    email: "Email:"
+    dob: "Birthday:"
+    mobile: "Phone number:"
+    address: "Address:"
+    N/A: "N/A"
