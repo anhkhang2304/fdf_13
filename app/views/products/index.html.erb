@@ -31,8 +31,7 @@
             <div class="item">
               <div class="img-product">
                 <%= link_to product_path product.id do %>
-                  <%= image_tag((product.avatar.nil? || product.avatar="") ?
-                    "noproduct.jpg" : product.avatar) %>
+                  <%= image_tag product.avatar.url.nil? ? "noproduct.jpg" : product.avatar %>
                 <% end %>
               </div>
               <div class="detail-product">
@@ -43,7 +42,7 @@
                 </h4>
                 <p class="price text-danger">
                   <%= t "product.price"%>
-                  <%= product.price.nil? ? t("can_not_update") : product.price %>
+                  <%= product.price.nil? ? t("can_not_update") : "#{product.price} $" %>
                 </p>
                 <p class="add-cart">
                   <%= link_to t("product.add_cart"), "javascript:;",
