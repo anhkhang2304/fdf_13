@@ -16,6 +16,7 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap
+//= require bootstrap-datepicker
 
 $(document).on('ready page:load', function(){
   var $tagNav = $('#nav-sider-left');
@@ -29,4 +30,5 @@ $(document).on('ready page:load', function(){
     console.log($this.data('url'));
     event.stopPropagation();
   });
+  $('.alert').fadeOut(4000);
 });

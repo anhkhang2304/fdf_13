@@ -20,6 +20,7 @@ gem "omniauth-facebook"
 gem "omniauth-google-oauth2"
 gem "twitter-bootstrap-rails"
 gem "devise-bootstrap-views"
+gem "bootstrap-datepicker-rails"
 
 group :development, :test do
   gem "byebug"

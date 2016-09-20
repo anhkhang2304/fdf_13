@@ -1,7 +1,20 @@
 <div class="header-top">
   <div class="container content-top">
     <ul>
-      <li><a><%= t "login" %></a></li>
+      <% if current_user.present? %>
+        <li class="header-user"><i class="fa fa-user"></i>
+          <%= link_to current_user.name, user_path(current_user.id) %></li>
+        <li><i class="fa fa-pencil-square-o"></i>
+          <%= link_to t("edit"), edit_user_registration_path %>
+        </li>
+        <li><i class="fa fa-sign-out"></i>
+          <%= link_to t("logout"), destroy_user_session_path, method: :delete %>
+        </li>
+      <% else %>
+        <li><i class="fa fa-sign-in"></i>
+          <%= link_to t("login"), new_user_session_path %>
+        </li>
+      <% end %>
     </ul>
   </div>
 </div>
