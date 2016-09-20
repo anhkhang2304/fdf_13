@@ -22,6 +22,10 @@ gem "omniauth-google-oauth2"
 gem "twitter-bootstrap-rails"
 gem "devise-bootstrap-views"
 gem "bootstrap-datepicker-rails"
+gem "ransack"
+gem "carrierwave"
+gem "mini_magick"
+gem "simple_form"
 
 group :development, :test do
   gem "byebug"

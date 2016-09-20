@@ -154,3 +154,15 @@
 .wrap-paging .pagination {
   margin: 0;
 }
+.portlet-body .grid-content p {
+  font: normal 14px Arial;
+  margin-top: 20px;
+}
+
+.portlet.view .grid-content img {
+  max-width: 100%;
+  margin-top: -20px;
+}
+.portlet.view img {
+  max-width: 100%;
+}
