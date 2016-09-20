@@ -28,6 +28,8 @@ en:
   update_success: "Update success!"
   add_fail: "Add new fail!"
   avatar: "Avatar"
+  comment: " Comment"
+  comments: " Comments"
   time:
     formats:
       short_date: "%m/%d/%Y"

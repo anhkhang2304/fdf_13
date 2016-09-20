@@ -5,9 +5,11 @@ class Admin::ProductsController < AdminController
 
   before_action :load_categories, except: [:index, :destroy]
   before_action :load_product, except: [:index, :create, :new]
+
   def index
     @q = Product.ransack params[:q]
-    @products = @q.result.order(created_at: :desc)
+    @products = @q.result
+      .includes(:comments).order(created_at: :desc)
       .page(params[:page]).per Settings.per_page
     @ord = get_index params[:page], Settings.per_page
   end
