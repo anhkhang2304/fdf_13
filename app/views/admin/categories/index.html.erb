@@ -41,18 +41,21 @@
               <tr>
                 <td class="text-center"><%= @ord+index %></td>
                 <td>
-                  <%= category.title %>
+                  <a class="act-view" href="javascript:;"
+                    data-view="<%= admin_category_path(category)%>">
+                    <%= category.title %>
+                  </a>
                   <span class="badge"><%= category.products.size %></span>
                 </td>
                 <td><%= l category.created_at, format: :long %></td>
                 <td class="text-center">
-                  <%= link_to "#", title: t("edit"), class: "underline text-success",
+                  <%= link_to "#", title: t("edit"), class: "act-edit text-success",
                     data: {url: edit_admin_category_path(category)} do %>
-                      <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                   <% end %>
                   <%= link_to [:admin, category], method: :delete, title: t("delete"),
                     class: "underline text-danger", data: {confirm: t("sure")} do %>
-                      <span class="glyphicon glyphicon-remove"></span>
+                    <span class="glyphicon glyphicon-remove"></span>
                   <% end %>
                 </td>
               </tr>

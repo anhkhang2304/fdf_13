@@ -24,6 +24,9 @@ en:
   created: "Created"
   function: "Function"
   sure: "You are sure?"
+  delete_success: "Delete success!"
+  add_success: "Add new success!"
+  update_success: "update success!"
   time:
     formats:
       short_date: "%m/%d/%Y"
@@ -37,3 +40,5 @@ en:
     mobile: "Phone number:"
     address: "Address:"
     N/A: "N/A"
+    can_not_delete: "This category have been used in relative data!"
+    blank: "Can't found category!"

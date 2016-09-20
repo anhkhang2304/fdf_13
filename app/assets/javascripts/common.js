@@ -33,7 +33,7 @@ function openDialogView(stitle, urlpageLoad, data, size) {
         draggable: true,
         buttons: [
         {
-          //label: I18n.t("exit"),
+          label: I18n.t("exit"),
           action: function (dialogRef) {
             dialogRef.close();
           }
@@ -69,7 +69,8 @@ function openDialog(iTitle, urlPageLoad, data, size, buttonName) {
         closeByBackdrop: false,
         draggable: true,
         buttons: [{
-          label: (buttonName != 'undefined' && buttonName != '' && buttonName != null) ? buttonName : '',
+          label: (buttonName != 'undefined' && buttonName != '' && buttonName != null) ?
+            buttonName : I18n.t("save"),
           cssClass: 'btn-primary',
           hotkey: 13,
           action: function (dialogRef) {
@@ -79,7 +80,7 @@ function openDialog(iTitle, urlPageLoad, data, size, buttonName) {
           }
         },
         {
-          //label: I18n.t("exit"),
+          label: I18n.t("exit"),
           action: function (dialogRef) {
             dialogRef.close();
           }
@@ -107,7 +108,7 @@ function loadPage($container, url, data) {
   var dfd = $.Deferred();
   $container.load(url, data, function (response, status, xhr) {
     if (status == 'error') {
-      //var msg = I18n.t('status.errors ') + xhr.status + " " + xhr.statusText;
+      var msg = I18n.t('status.errors') + xhr.status + " " + xhr.statusText;
       $container.html(msg);
     }
     return dfd.resolve();
