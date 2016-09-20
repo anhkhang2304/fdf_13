@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20160922022647) do
     t.integer  "product_id"
     t.integer  "user_id"
     t.string   "content"
-    t.integer  "rate"
+    t.integer  "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -82,7 +82,7 @@ ActiveRecord::Schema.define(version: 20160922022647) do
     t.string   "description"
     t.string   "avatar"
     t.integer  "quantity"
-    t.float    "rate"
+    t.float    "rate_score"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end

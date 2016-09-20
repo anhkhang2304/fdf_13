@@ -1,4 +1,5 @@
 //= require jquery
+//= require jquery_ujs
 //= require bootstrap
 //= require twitter/bootstrap
 //= require turbolinks
@@ -6,6 +7,8 @@
 //= require i18n.js
 //= require i18n/translations
 //= require bootstrap-datepicker
+//= require jquery.raty
+//= require ratyrate
 
 $(document).on('ready page:load', function(){
   $('.btn-add-cart').click(function(){
@@ -19,5 +22,32 @@ $(document).on('ready page:load', function(){
       }).done(function(data) {
         $(this).addClass( "done" );
       });
+  });
+});
+
+$(function(){
+  $('.comment-button').click(function(event){
+    $(this).hide();
+    $('.comment-button').show();
+  });
+
+  $('.comment-button').click(function (e){
+    e.preventDefault();
+    var theCom = $('.comment-box');
+    var rate = $('.rating .star').attr('data-rating');
+    console.log(rate);
+    if( !theCom.val() ){
+      alert(I18n.t('error_comment'));
+    } else {
+      $.ajax({
+        method: 'POST',
+        url: $('#comment_dataurl').val(),
+        data: $('#new_comment').serialize(),
+        success: function(data){
+          $('#list-comment').prepend(data);
+          $('.comment-box').val('');
+        }
+      });
+    }
   });
 });

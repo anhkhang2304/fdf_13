@@ -13,6 +13,9 @@ class ProductsController < ClientController
 
   def show
     @product = Product.find_by id: params[:id]
+    @comment = Comment.new product: @product
+    @comments = @product.comments.order(created_at: :desc)
+      .page(params[:page]).per Settings.per_page
     if @product.nil?
       render file: "public/404.html", status: :not_found, layout: true
     end

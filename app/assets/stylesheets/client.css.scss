@@ -195,8 +195,6 @@ color: white;
 }
 
 .lst-product {
-  margin-left: 50px;
-  margin-right: 50px;
 }
 
 .lst-product .search-container{
@@ -207,7 +205,7 @@ color: white;
 }
 
 .lst-product .data-container{
-  margin-top: 10px
+  margin-top: 10px;
 }
 
 .lst-product .data-container .list-products .col-item {
@@ -220,7 +218,7 @@ color: white;
 
 .lst-product .data-container .list-products .item .img-product img {
   width: 100%;
-  height: 222px;
+  height: 250px;
 }
 
 .lst-product .data-container .list-products .detail-product {
@@ -240,9 +238,12 @@ color: white;
 
 .detail-product .portlet-body .left img {
   padding: 25px;
-  margin-left: 25px;
+  margin-left: 10px;
   width: 100%;
-  border: 1px solid #ddd;
+}
+.detail-product .portlet-body .left a {
+  margin-top: 20px;
+  margin-left: 125px;
 }
 .detail-product .portlet-body .right ul {
   list-style: none
@@ -253,6 +254,75 @@ color: white;
 .detail-product .portlet-body .right ul li {
   line-height: 30px;
   clear: both;
+  h1 {
+    border-bottom: 2px solid #ddd;
+  }
+}
+.detail-product .data-container {
+  clear: both;
+  overflow: hidden;
+  .banner {
+    border: 1px solid #ddd;
+    margin: 60px 70px 0px 10px;
+  }
+  .google_share {
+    margin-top: 10px;
+  }
+}
+
+.detail-product .portlet-body  {
+  .comment {
+    margin: 50px 50px 0px 50px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+    clear: both;
+    overflow: hidden;
+  }
+  .comment .comment-content span{
+    display: block;
+    clear: both;
+  }
+  .comment .comment-content {
+    clear: both;
+    overflow: hidden;
+    display: block;
+    .image-user img{
+      width: 90%;
+    }
+    .user {
+      color: #515151;
+      font-weight: bold;
+      font-family: roboto;
+    }
+    .truncate {
+      color: rgba(0,0,0,.76);
+      font-family: roboto;
+    }
+    .timestamp {
+      font-size: 10px;
+      font-style: italic;
+      color: rgba(40,47,63,.5);
+      border-bottom: 1px solid #ddd;
+    }
+  }
+}
+
+.go-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    text-decoration: none;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.25);
+    padding: 10px;
+    display: none;
+    margin: 0;
+}
+
+.go-top:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    text-decoration: none;
 }
 .wrap-cart .cart ul li {
   clear: both;

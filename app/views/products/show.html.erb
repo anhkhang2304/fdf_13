@@ -8,37 +8,79 @@
   </div>
   <div class="portlet-body">
     <div class="data-container">
-      <div class="col-md-4 left">
+      <div class="col-md-3 col-md-offset-1 left">
         <%= image_tag @product.avatar.url.nil? ?
           "noproduct.jpg" : @product.avatar %>
+        <%= link_to t("product.add_cart"), "javascript:;",
+          class: "btn btn-success add_button" %>
       </div>
-      <div class="col-md-8 right">
+      <div class="col-md-4 right">
         <ul class="info-product">
           <li><h1><%= @product.name %></h1></li>
           <li>
-            <div class="col-md-4 no-padding-left"><%= t "product.price" %></div>
-            <div class="col-md-8">
+            <div class="col-md-3 no-padding-left"><%= t "product.price" %></div>
+            <div class="col-md-9">
               <%= @product.price.nil? ? t("can_not_update") : "#{@product.price} $" %>
             </div>
           </li>
           <li>
-            <div class="col-md-4 no-padding-left"><%= t "product.description" %></div>
-            <div class="col-md-8"><%= @product.description %></div>
+            <div class="col-md-3 no-padding-left"><%= t "product.description" %></div>
+            <div class="col-md-9"><%= @product.description %></div>
           </li>
           <li>
-            <div class="col-md-4 no-padding-left"><%= t "product.quantity" %></div>
-            <div class="col-md-8"><%= @product.quantity %></div>
+            <div class="col-md-3 no-padding-left"><%= t "product.quantity" %></div>
+            <div class="col-md-9"><%= @product.quantity %></div>
           </li>
           <li>
-            <div class="col-md-4 no-padding-left"><%= t "product.rate" %></div>
-            <div class="col-md-8"><%= @product.rate %></div>
+            <div class="col-md-3 no-padding-left"><%= t "product.rate" %></div>
+            <div class="col-md-9">
+              <%= rating_for @product, "rate", disable_after_rate: false %>
+            </div>
+            <% if current_user.present? %>
+
+            <% end %>
           </li>
           <li>
-            <%= link_to t("product.add_cart"), "javascript:;",
-              class: "btn btn-success" %>
+            <div class="fb-like"
+              data-href="https://developers.facebook.com/docs/plugins/"
+              data-layout="standard" data-action="like"
+              data-size="small" data-show-faces="true" data-share="false">
+            </div>
+
+            <div class="fb-share-button"
+              data-href="https://developers.facebook.com/docs/plugins/"
+              data-layout="button_count" data-size="small"
+              data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore"
+              target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;
+              src=sdkpreparse">share</a>
+            </div>
+          </li>
+          <li class="google_share">
+            <g:plusone size="standard (bubble)"></g:plusone>
           </li>
         </ul>
       </div>
+      <div class="col-md-3 banner">
+        <li>
+          <%= t "banner" %>
+        </li>
+      </div>
+    </div>
+    <div class="comment">
+      <div id="list-comment">
+        <%= render @comments %>
+      </div>
+      <div>
+        <% unless current_user == nil %>
+          <%= render "comments/form_comment" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-offset-4">
+      <%= paginate @comments, theme: "twitter-bootstrap-3" %>
+    </div>
+    <div class="col-md-8 col-md-offset-2">
+      <div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-numposts="2" data-width="100%"></div>
     </div>
   </div>
 </div>

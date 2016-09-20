@@ -34,6 +34,9 @@ en:
   view_cart: "View cart"
   last-update: "Last update"
   status: "Status"
+  detail: "Detail"
+  exit: "Exit"
+  ago: "ago"
   time:
     formats:
       short_date: "%m/%d/%Y"
@@ -62,7 +65,7 @@ en:
     blank: "Can't found category!"
   product:
     title: "Product"
-    price: "Price: "
+    price: "Price"
     add_cart: "Add cart"
     description: "Description: "
     quantity: "Quantity: "
@@ -70,3 +73,10 @@ en:
   order:
     list-order: "List order"
     continue: "Continue shopping"
+    description: "Description"
+    quantity: "Quantity"
+    rate: "Rate"
+    total_rate: "Number of rate"
+  banner:
+    "Deliver:
+    Free shipping"

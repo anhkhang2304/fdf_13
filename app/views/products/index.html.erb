@@ -40,6 +40,7 @@
                     <%= product.name %>
                   <% end %>
                 </h4>
+                <p class="rate-index"><%= rating_for product, "rate" , {readonly: true} %></p>
                 <p class="price text-danger">
                   <%= t "product.price"%>
                   <%= product.price.nil? ? t("can_not_update") : "#{product.price} $" %>

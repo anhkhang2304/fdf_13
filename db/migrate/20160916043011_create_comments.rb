@@ -4,7 +4,7 @@ class CreateComments < ActiveRecord::Migration
       t.integer :product_id
       t.integer :user_id
       t.string :content
-      t.integer :rate
+      t.integer :rating
 
       t.timestamps null: false
     end

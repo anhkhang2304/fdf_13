@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  post "/rate" => "rater#create", :as => "rate"
+  post "/rate" ,to: "rater#create", as: "rate"
   root "static_pages#index"
   namespace :admin do
     root "static_pages#index"
@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   resources :products, only: [:index, :show]
   resources :orders
   resources :detail_orders, only: [:create]
+  resources :comments, only: :create
 end
