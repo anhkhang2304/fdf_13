@@ -20,6 +20,8 @@
 //= require i18n/translations
 //= require_tree .
 //= require bootstrap-datepicker
+//= require jquery.raty
+//= require ratyrate
 
 $(document).on('ready page:load', function(){
   var $tagNav = $('#nav-sider-left');

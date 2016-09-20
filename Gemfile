@@ -26,6 +26,7 @@ gem "ransack"
 gem "carrierwave"
 gem "mini_magick"
 gem "simple_form"
+gem "ratyrate"
 
 group :development, :test do
   gem "byebug"
