@@ -18,6 +18,15 @@
 //= require bootstrap
 
 $(document).on('ready page:load', function(){
-  var $tagNav = $("#nav-sider-left");
+  var $tagNav = $('#nav-sider-left');
   $tagNav.navsider({ linkclick: true, cssClass: 'menu-bar', minHeight: 41 });
+
+  $('button.act-add').click(function (event) {
+    $this = $(this);
+    var $box = $this.closest('.box.manager');
+    var $table = $box.find('.portlet-body').first().find('.grid-data').first().find('table').first();
+    openDialog($this.data('title'), $this.data('url'), $this.data('parameters'), $this.data('size'), '');
+    console.log($this.data('url'));
+    event.stopPropagation();
+  });
 });

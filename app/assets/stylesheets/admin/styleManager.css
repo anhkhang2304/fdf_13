@@ -1,4 +1,9 @@
-﻿.top-nav
+﻿table tr th
+{
+  text-align: center;
+}
+
+.top-nav
 {
   padding: 0px 15px;
 }
@@ -124,4 +129,29 @@
   right: 0;
   text-align: center;
   z-index: 9999;
+}
+
+.portlet.box.manager {
+  border-color:  #b4cef8;
+  border-image: none;
+  border-style: none solid solid;
+  border-width: 0 1px 1px;
+}
+.portlet.box.manager > .portlet-title > .caption
+{
+  color: #666;
+}
+.search-container {
+  padding: 10px;
+  background-color: #f5f5f5;
+}
+.portlet.box > .portlet-title {
+  border-bottom: 1px solid #eee;
+  color: #fff !important;
+  font-size: 17px;
+  padding: 10px 10px 7px;
+}
+
+.wrap-paging .pagination {
+  margin: 0;
 }
