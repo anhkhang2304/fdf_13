@@ -35,7 +35,6 @@ $(function(){
     e.preventDefault();
     var theCom = $('.comment-box');
     var rate = $('.rating .star').attr('data-rating');
-    console.log(rate);
     if( !theCom.val() ){
       alert(I18n.t('error_comment'));
     } else {

@@ -39,6 +39,8 @@
             <% if current_user.present? %>
 
             <% end %>
+            <div class="col-md-9 rating"><%= rating_for @product,
+              "rate", disable_after_rate: false %></div>
           </li>
           <li>
             <div class="fb-like"
