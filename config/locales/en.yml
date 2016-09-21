@@ -5,12 +5,9 @@ en:
   managersystem: "Manager Food and Drink"
   login: "Login"
   logout: " Logout"
-  edit: "Edit profile"
   warning: "Warning!"
   welcome: "Welcome !"
   home: "Go shopping"
-  category:
-    title: "Category"
   login_error: "Login error"
   add: "Add"
   edit: "Edit"
@@ -28,20 +25,34 @@ en:
   add_success: "Add new success!"
   update_success: "update success!"
   can_not_update: "can't update"
+  update_success: "Update success!"
+  add_fail: "Add new fail!"
+  avatar: "Avatar"
   time:
     formats:
       short_date: "%m/%d/%Y"
       long_datetime:  "%B %d, %Y, at %r"
   category:
     title: "Category"
+    can_not_delete: "This category have been used in relative data!"
+  product:
+    title: "Product"
+    can_not_delete: "This category have been used in relative data!"
+    price: "Price"
+    new: "New product"
+    description: "Description"
+    quantity: "Quantity"
+    rate: "Rate"
+    image_size_error: "Please upload image small than 0.5Mb"
   user:
+    edit: "Edit profile"
+    title: "User"
     name: "Name:"
     email: "Email:"
     dob: "Birthday:"
     mobile: "Phone number:"
     address: "Address:"
     N/A: "N/A"
-    can_not_delete: "This category have been used in relative data!"
     blank: "Can't found category!"
   product:
     title: "Product"
