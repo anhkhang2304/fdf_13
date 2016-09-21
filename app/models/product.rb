@@ -1,4 +1,6 @@
 class Product < ActiveRecord::Base
+  scope :where_contains, -> keyword {where("name like ?","%#{keyword}%")}
+
   belongs_to :category
   has_many :comments
   has_many :detail_orders

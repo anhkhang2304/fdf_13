@@ -1,0 +1,44 @@
+<div class="portlet box detail-product">
+  <div class="portlet-title">
+    <div class="caption">
+      <span class="caption-title">
+      </span>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+  <div class="portlet-body">
+    <div class="data-container">
+      <div class="col-md-5 left">
+        <%= image_tag((@product.avatar.nil? || @product.avatar="") ?
+          "noproduct.jpg" : @product.avatar) %>
+      </div>
+      <div class="col-md-7 right">
+        <ul class="info-product">
+          <li><h1><%= @product.name %></h1></li>
+          <li>
+            <div class="col-md-4 no-padding-left"><%= t "product.price" %></div>
+            <div class="col-md-8">
+              <%= @product.price.nil? ? t("can_not_update") : @product.price %>
+            </div>
+          </li>
+          <li>
+            <div class="col-md-4 no-padding-left"><%= t "product.description" %></div>
+            <div class="col-md-8"><%= @product.description %></div>
+          </li>
+          <li>
+            <div class="col-md-4 no-padding-left"><%= t "product.quantity" %></div>
+            <div class="col-md-8"><%= @product.quantity %></div>
+          </li>
+          <li>
+            <div class="col-md-4 no-padding-left"><%= t "product.rate" %></div>
+            <div class="col-md-8"><%= @product.rate %></div>
+          </li>
+          <li>
+            <%= link_to t("product.add_cart"), "javascript:;",
+              class: "btn btn-success" %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
