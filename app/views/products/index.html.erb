@@ -1,0 +1,64 @@
+<div class="portlet box lst-product">
+  <div class="portlet-title">
+    <div class="caption">
+      <span class="caption-title">
+      </span>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+  <div class="portlet-body">
+    <div class="search-container">
+      <%= form_tag products_path, method: :get do %>
+        <div class="col-md-3 no-padding-right">
+          <%= text_field_tag :keyword, params[:keyword], class: "form-control",
+            placeholder: t("keyword") %>
+        </div>
+        <div class="col-sm-3">
+          <%= select_tag :cate, options_from_collection_for_select(@categories,
+            "id", "title", params[:cate]),
+            {include_blank: t("all_categories"), class:"form-control",
+            onchange: "this.form.submit();"} %>
+        </div>
+        <%= submit_tag t("search"),
+          class: "btn btn-default btn-search-top clear" %>
+      <% end %>
+      <div class="clearfix"></div>
+    </div>
+    <div class="data-container">
+      <div class="list-products row">
+        <% @products.each do |product| %>
+          <div class="col-item col-md-3 col-sm-4 col-xs-2">
+            <div class="item">
+              <div class="img-product">
+                <%= link_to product_path product.id do %>
+                  <%= image_tag((product.avatar.nil? || product.avatar="") ?
+                    "noproduct.jpg" : product.avatar) %>
+                <% end %>
+              </div>
+              <div class="detail-product">
+                <h4>
+                  <%= link_to product_path product.id do %>
+                    <%= product.name %>
+                  <% end %>
+                </h4>
+                <p class="price text-danger">
+                  <%= t "product.price"%>
+                  <%= product.price.nil? ? t("can_not_update") : product.price %>
+                </p>
+                <p class="add-cart">
+                  <%= link_to t("product.add_cart"), "javascript:;",
+                    class: "btn btn-success" %>
+                <p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="row wrap-paging">
+        <div class="col-sm-12 text-center">
+          <%= paginate @products, theme: "twitter-bootstrap-3" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

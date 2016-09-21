@@ -27,6 +27,7 @@ en:
   delete_success: "Delete success!"
   add_success: "Add new success!"
   update_success: "update success!"
+  can_not_update: "can't update"
   time:
     formats:
       short_date: "%m/%d/%Y"
@@ -42,3 +43,10 @@ en:
     N/A: "N/A"
     can_not_delete: "This category have been used in relative data!"
     blank: "Can't found category!"
+  product:
+    title: "Product"
+    price: "Price: "
+    add_cart: "Add cart"
+    description: "Description: "
+    quantity: "Quantity: "
+    rate: "Rate: "
