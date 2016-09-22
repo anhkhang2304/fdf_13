@@ -10,7 +10,7 @@
     <div class="data-container">
       <div class="col-md-4 left">
         <%= image_tag @product.avatar.url.nil? ?
-          "noproduct.jpg" : @product.avatar.thumb %>
+          "noproduct.jpg" : @product.avatar %>
       </div>
       <div class="col-md-8 right">
         <ul class="info-product">

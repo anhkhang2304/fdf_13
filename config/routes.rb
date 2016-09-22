@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  post "/rate" => "rater#create", :as => "rate"
   root "static_pages#index"
   namespace :admin do
     root "static_pages#index"
