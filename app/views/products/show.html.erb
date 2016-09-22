@@ -8,17 +8,17 @@
   </div>
   <div class="portlet-body">
     <div class="data-container">
-      <div class="col-md-5 left">
-        <%= image_tag((@product.avatar.nil? || @product.avatar="") ?
-          "noproduct.jpg" : @product.avatar) %>
+      <div class="col-md-4 left">
+        <%= image_tag @product.avatar.url.nil? ?
+          "noproduct.jpg" : @product.avatar.thumb %>
       </div>
-      <div class="col-md-7 right">
+      <div class="col-md-8 right">
         <ul class="info-product">
           <li><h1><%= @product.name %></h1></li>
           <li>
             <div class="col-md-4 no-padding-left"><%= t "product.price" %></div>
             <div class="col-md-8">
-              <%= @product.price.nil? ? t("can_not_update") : @product.price %>
+              <%= @product.price.nil? ? t("can_not_update") : "#{@product.price} $" %>
             </div>
           </li>
           <li>

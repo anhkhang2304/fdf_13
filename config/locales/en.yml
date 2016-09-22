@@ -49,7 +49,7 @@ en:
   user:
     edit: "Edit profile"
     title: "User"
-    name: "Name:"
+    name: "Name: "
     email: "Email:"
     dob: "Birthday:"
     mobile: "Phone number:"
