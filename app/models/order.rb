@@ -1,4 +1,25 @@
 class Order < ActiveRecord::Base
   belongs_to :user
-  has_many :detail_orders
+  has_many :detail_orders, dependent: :destroy
+
+  enum status: [:created, :pendding, :done, :cancel]
+
+  before_create :create_order
+  before_save :update_total_money
+
+  def total_money
+    self.detail_orders.collect do |item|
+      item.valid? ? (item.quantity * item.price) : 0
+    end.sum
+  end
+
+  private
+  def create_order
+    self.status = :created
+    self.date_update = Time.now
+  end
+
+  def update_total_money
+    self.total_money = total_money
+  end
 end

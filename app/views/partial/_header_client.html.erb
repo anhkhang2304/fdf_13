@@ -1,7 +1,38 @@
 <div class="header-top">
   <div class="container content-top">
-    <ul>
+    <ul class="wrap-cart">
       <% if current_user.present? %>
+        <li class="header-user dropdown cart">
+          <a data-toggle="dropdown" href="javascript:;">
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            <%= t "items " %>(<span id="count-order"><%= @cart.sum :quantity %></span>)
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <% if session[:order_id].present? %>
+              <% @cart.each do |detail_order| %>
+                <li>
+                  <div class="left col-md-3 no-padding-left">
+                    <%= image_tag((detail_order.avatar.nil? || detail_order.avatar="") ?
+                    "noproduct.jpg" : detail_order.avatar) %>
+                  </div>
+                  <div class="center col-md-5 no-padding-left">
+                    <p class="name-product"><%= detail_order.name %></p>
+                    <p class="price-product">
+                      <%= detail_order.price %> * <%= detail_order.quantity %>
+                    </p>
+                  </div>
+                  <div class="right col-md-4 no-padding text-success">
+                      <%= detail_order.price * detail_order.quantity %>
+                  </div>
+                </li>
+              <% end %>
+            <% end %>
+            <li class="view-cart"><%= link_to t("view_cart"),
+              session[:order_id].present? ? order_path(current_order) :
+              orders_path %></li>
+          </ul>
+        </li>
         <li class="header-user"><i class="fa fa-user"></i>
           <%= link_to current_user.name, user_path(current_user.id) %></li>
         <li><i class="fa fa-pencil-square-o"></i>
