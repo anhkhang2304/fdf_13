@@ -30,6 +30,10 @@ en:
   avatar: "Avatar"
   comment: " Comment"
   comments: " Comments"
+  items: "items"
+  view_cart: "View cart"
+  last-update: "Last update"
+  status: "Status"
   time:
     formats:
       short_date: "%m/%d/%Y"
@@ -63,3 +67,6 @@ en:
     description: "Description: "
     quantity: "Quantity: "
     rate: "Rate: "
+  order:
+    list-order: "List order"
+    continue: "Continue shopping"

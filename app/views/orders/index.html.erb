@@ -1,0 +1,61 @@
+<div class="portlet box manager">
+  <div class="portlet-title">
+    <div class="caption">
+      <p><h4><%= t "order.list-order" %></h4></p>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+  <div class="portlet-body">
+    <div class="data-container">
+      <div class="grid-data" data-size="FULL" data-size-reset="NORMAL">
+        <table class="table table-bordered table-striped table-hover">
+          <thead>
+            <tr>
+              <th class="text-center"><%= t "ord" %></th>
+              <th class="text-center"><%= t "title" %></th>
+              <th class="text-center"><%= t "last-update" %></th>
+              <th class="text-center"><%= t "created" %></th>
+              <th class="text-center"><%= t "status" %></th>
+              <th class="text-center"><%= t "function" %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @orders.each_with_index do |order, index| %>
+              <tr class="<%= (session[:order_id].present? &&
+                session[:order_id].to_i == order.id) ? "success" : "" %>">
+                <td class="text-center"><%= @ord+index %></td>
+                <td>
+                  <a href="<%= product_path(order)%>">
+                    <%= t "product.title" %>
+                  </a>
+                  <span class="badge"><%= order.detail_orders.sum :quantity %></span>
+                </td>
+                <td><%= l order.date_update, format: :long %></td>
+                <td><%= l order.created_at, format: :long %></td>
+                <td><%= order.status %></td>
+                <td class="text-center">
+                  <% if order.status == "created" %>
+                    <%= link_to edit_order_path order,
+                      {title: t("order.continue")} do %>
+                      <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                    <% end %>
+                    <%= link_to edit_order_path order, {title: t("delete")} do %>
+                      <span class="glyphicon glyphicon-remove text-danger"></span>
+                    <% end %>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <div class="row wrap-paging">
+          <div class="col-sm-5">
+          </div>
+          <div class="col-sm-7 text-right">
+            <%= paginate @orders, theme: "twitter-bootstrap-3" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

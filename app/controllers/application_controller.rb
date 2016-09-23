@@ -1,9 +1,15 @@
 class ApplicationController < ActionController::Base
-  # Prevent CSRF attacks by raising an exception.
-  # For APIs, you may want to use :null_session instead.
+  include ApplicationHelper
+  include OrdersHelper
+
   protect_from_forgery with: :exception
 
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :initialize_cart
+
+  def initialize_cart
+    @cart = Cart.init_cart current_order
+  end
 
   private
   def configure_permitted_parameters
