@@ -8,7 +8,7 @@
 //= require i18n/en
 //= require bootstrap-datepicker
 //= require common.js
-//= require admin/bootstrap-dialog.min.js
+//= require admin/bootstrap-dialog.js
 
 $(document).on('ready page:load', function(){
   $('.btn-add-cart').click(function(){

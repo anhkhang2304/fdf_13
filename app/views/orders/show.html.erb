@@ -19,7 +19,8 @@
             <%= f.hidden_field :status, value: :pendding %>
             <%= f.button :submit, t("order.payment"), data: { confirm: t("sure")},
               class: "btn btn-primary" %>
-          <% else %>
+          <% end %>
+          <% if @order.status == "pendding" %>
             <%= f.hidden_field :status, value: :cancel %>
             <%= f.button :submit, t("order.cancel"), data: { confirm: t("sure")},
               class: "btn btn-danger" %>

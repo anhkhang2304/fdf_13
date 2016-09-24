@@ -40,6 +40,7 @@ en:
   price: "Price"
   total: "Total"
   amount: "amount"
+  customer: "Customer"
   time:
     formats:
       short_date: "%m/%d/%Y"
@@ -74,6 +75,7 @@ en:
     quantity: "Quantity: "
     rate: "Rate: "
   order:
+    title: "Order"
     list-order: "List order"
     detail-order: "Detail order"
     continue: "Continue shopping"
@@ -83,3 +85,4 @@ en:
     pay_success: "Payment success!"
     pay_fail: "Payment fail!"
     pay_cancel: "Payment has been cancel!"
+    done: "Done"

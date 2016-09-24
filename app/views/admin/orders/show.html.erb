@@ -1,0 +1,75 @@
+<div class="portlet order">
+  <div class="portlet-title">
+    <div class="caption">
+      <h4>
+        <span class="text-info"><%= t "customer: "%></span><%= @order.user.name %>
+      </h4>
+    </div>
+  </div>
+  <div class="portlet-body">
+    <div class="grid-content">
+      <div class="col-md-4 no-padding">
+        <p>
+          <span class="text-danger"><%= t "created: "%></span>
+          <%= l @order.created_at, format: :short %>
+        </p>
+      </div>
+      <div class="col-md-8 no-padding-right">
+        <div class="pro-title"></div>
+        <div class="list-product">
+          <table class="table table-bordered table-striped table-hover">
+            <thead>
+              <tr>
+                <th class="text-center"><%= t "ord" %></th>
+                <th class="text-center"><%= t "title" %></th>
+                <th class="text-center"><%= t "price" %></th>
+                <th class="text-center"><%= t "quantity" %></th>
+                <th class="text-center"><%= t "total amount" %></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @order.detail_orders.select_product.each_with_index do |product, index| %>
+                <tr class="tr-<%= product.product_id %>">
+                  <td class="text-center"><%= index+1 %></td>
+                  <td>
+                    <a href="<%= product_path product.product_id %>">
+                      <%= product.name %>
+                    </a>
+                  </td>
+                  <td class="text-right"><%= product.price %></td>
+                  <td class="text-center">
+                    <% if @order.status == "created" || @order.status == "cancel" %>
+                      <%= link_to "-", "javascript:;",
+                        class: "btn btn-sm btn-default pull-left btn-sub-product",
+                        data: {id: product.product_id, url: detail_order_path,
+                        order: @order.id} %>
+                    <% end %>
+                    <span id="quantity-<%= product.product_id %>">
+                      <%= product.quantity %>
+                    </span>
+                    <% if @order.status == "created" || @order.status == "cancel" %>
+                      <%= link_to "+", "javascript:;",
+                        class: "btn btn-sm btn-default pull-right btn-add-product",
+                        data: {id: product.product_id, url: detail_order_path,
+                        order: @order.id} %>
+                    <% end %>
+                  </td>
+                  <td class="text-right total-<%= product.product_id %>">
+                    <%= product.quantity * product.price %>
+                  </td>
+                </tr>
+              <% end %>
+              <% if @order.status == "pendding" || @order.status == "done" %>
+                <tr>
+                  <td colspan="4"><b><%= t "total" %></b></td>
+                  <td class="text-right"><%= @order.total_money %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+</div>

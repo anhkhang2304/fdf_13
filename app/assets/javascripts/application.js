@@ -52,12 +52,13 @@ $(document).on('ready page:load', function(){
   $('a.act-view').click(function (event) {
     var $grid = $(this).closest("div.grid-data");
     var datapost = $grid.data("parameters");
+    var size = $(this).data("size");
     if (datapost == 'undefined') {
       datapost = {}
     }
     var dataFinish = {};
     $.extend(dataFinish, datapost);
-    openDialogView(I18n.t('detail'), $(this).data('view'), datapost, $grid.data("size"));
+    openDialogView(I18n.t('detail'), $(this).data('view'), datapost, size);
     event.stopPropagation();
   })
 

@@ -1,4 +1,8 @@
 class Order < ActiveRecord::Base
+  scope :where_status_for_admin, -> do
+    where "status = ? or status = ?", statuses[:pendding], statuses[:done]
+  end
+
   belongs_to :user
   has_many :detail_orders, dependent: :destroy
 

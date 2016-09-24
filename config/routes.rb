@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :static_pages
     resources :categories
     resources :products
+    resources :orders
     resources :users, only: [:index, :show, :destroy]
   end
   devise_for :users, controllers: {omniauth_callbacks: "users/omniauth_callbacks"}
