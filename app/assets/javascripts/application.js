@@ -17,7 +17,7 @@
 //= require turbolinks
 //= require i18n
 //= require i18n.js
-//= require i18n/translations
+//= require i18n/en
 //= require_tree .
 //= require bootstrap-datepicker
 //= require jquery.raty

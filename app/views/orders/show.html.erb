@@ -1,0 +1,101 @@
+<div class="portlet box manager">
+  <% flash.each do |message_type, message| %>
+    <div class="alert alert-client alert-<%= message_type %>"><%= message %></div>
+  <% end %>
+  <div class="portlet-title">
+    <div class="caption">
+      <div class="col-md-11 no-padding">
+        <h4>
+          <a href="<%= orders_path %>">
+            <%= t "order.detail-order" %>
+            <span></span>
+            <span class="text-success">(<%= t "status: " + @order.status %>)</span>
+          </a>
+        </h4>
+      </div>
+      <div class="col-md-1 no-padding-right">
+        <%= simple_form_for @order do |f| %>
+          <% if @order.status == "created" || @order.status == "cancel" %>
+            <%= f.hidden_field :status, value: :pendding %>
+            <%= f.button :submit, t("order.payment"), data: { confirm: t("sure")},
+              class: "btn btn-primary" %>
+          <% else %>
+            <%= f.hidden_field :status, value: :cancel %>
+            <%= f.button :submit, t("order.cancel"), data: { confirm: t("sure")},
+              class: "btn btn-danger" %>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+  <div class="portlet-body">
+    <div class="data-container">
+      <div class="grid-data" data-size="FULL" data-size-reset="NORMAL">
+        <table class="table table-bordered table-striped table-hover">
+          <thead>
+            <tr>
+              <th class="text-center"><%= t "ord" %></th>
+              <th class="text-center"><%= t "title" %></th>
+              <th class="text-center"><%= t "price" %></th>
+              <th class="text-center"><%= t "quantity" %></th>
+              <th class="text-center"><%= t "total amount" %></th>
+              <th class="text-center"><%= t "function" %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @order.detail_orders.select_product.each_with_index do |product, index| %>
+              <tr class="tr-<%= product.product_id %>">
+                <td class="text-center"><%= index+1 %></td>
+                <td>
+                  <a href="<%= product_path product.product_id %>">
+                    <%= product.name %>
+                  </a>
+                </td>
+                <td class="text-right"><%= product.price %></td>
+                <td class="text-center">
+                  <% if @order.status == "created" || @order.status == "cancel" %>
+                    <%= link_to "-", "javascript:;",
+                      class: "btn btn-sm btn-default pull-left btn-sub-product",
+                      data: {id: product.product_id, url: detail_order_path,
+                      order: @order.id} %>
+                  <% end %>
+                  <span id="quantity-<%= product.product_id %>">
+                    <%= product.quantity %>
+                  </span>
+                  <% if @order.status == "created" || @order.status == "cancel" %>
+                    <%= link_to "+", "javascript:;",
+                      class: "btn btn-sm btn-default pull-right btn-add-product",
+                      data: {id: product.product_id, url: detail_order_path,
+                      order: @order.id} %>
+                  <% end %>
+                </td>
+                <td class="text-right total-<%= product.product_id %>">
+                  <%= product.quantity * product.price %>
+                </td>
+                <td class="text-center">
+                  <% if @order.status == "created" || @order.status == "cancel" %>
+                    <%= link_to "javascript:;", data: {
+                      product: product.product_id, order: @order.id,
+                      url: detail_order_path}, class: "del-product-order" do %>
+                      <span class="glyphicon glyphicon-remove text-danger"></span>
+                    <% end %>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+            <% if @order.status == "pendding" || @order.status == "done" %>
+              <tr>
+                <td colspan="4"><b><%= t "total" %></b></td>
+                <td class="text-right"><%= @order.total_money %></td>
+                <td></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <div class="row wrap-paging">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

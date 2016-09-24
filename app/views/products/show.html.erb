@@ -35,7 +35,8 @@
           </li>
           <li>
             <%= link_to t("product.add_cart"), "javascript:;",
-              class: "btn btn-success" %>
+              class: "btn btn-success btn-add-cart", data: {id: product.id,
+              url: detail_orders_path} %>
           </li>
         </ul>
       </div>
