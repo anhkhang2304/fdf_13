@@ -1,0 +1,10 @@
+<h1>We have new order!</h1>
+
+<p>
+  <% @order.detail_orders.select_product.each do |item| %>
+    <%= "Product:  #{item.name} \n" %>
+    <%= "Quantity: #{item.quantity} \n" %>
+    <%= "Price: #{item.price} \n" %>
+    <%= "Total money: #{item.total_money} \n" %>
+  <% end %>
+</p>

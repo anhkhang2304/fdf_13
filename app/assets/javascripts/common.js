@@ -3,7 +3,7 @@ function loadPageBody($container, url, data) {
     var dataseri = $('form').serialize();
     if(data == undefined)
       data = dataseri;
-    $container.html("<img src='/assets/images/loading.gif' />");
+    $container.html("<img src='loading.gif' />");
     var dfd = $.Deferred();
     $container.load(url, data, function (response, status, xhr) {
       if (status == 'error') {
@@ -39,18 +39,17 @@ function openDialogView(stitle, urlpageLoad, data, size) {
           }
         }],
       });
-
       if (size == 'NORMAL')
         $dialog.setSize(BootstrapDialog.SIZE_NORMAL);
       else if (size == 'SMALL')
         $dialog.setSize(BootstrapDialog.SIZE_SMALL);
       else if (size == 'LARGE')
         $dialog.setSize(BootstrapDialog.SIZE_LARGE);
-      else if (size == 'FULL') {
+      else if (size == 'FULL')
         $dialog.setSize(BootstrapDialog.SIZE_FULL);
-      }
       else
         $dialog.setSize(BootstrapDialog.SIZE_WIDE);
+      console.log(size)
       $dialog.open();
     })
   } catch (e) {}
@@ -104,7 +103,7 @@ function openDialog(iTitle, urlPageLoad, data, size, buttonName) {
 }
 
 function loadPage($container, url, data) {
-  $container.html("<img src='/assets/images/loading.gif' />");
+  $container.html("<img src='loading.gif' />");
   var dfd = $.Deferred();
   $container.load(url, data, function (response, status, xhr) {
     if (status == 'error') {

@@ -166,3 +166,7 @@
 .portlet.view img {
   max-width: 100%;
 }
+
+.action-order {
+  display: inline-block;
+}
