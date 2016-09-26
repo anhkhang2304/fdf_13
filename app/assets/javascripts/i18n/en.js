@@ -8,4 +8,5 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}),
     "save": "Save",
     "update": "Update",
     "detail": "Detail"
+    "error_comment": "You need to write a comment and rate product!"
   });

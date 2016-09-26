@@ -1,0 +1,17 @@
+<% if user_signed_in? %>
+  <div class="form-comment">
+    <%= form_for @comment do |f| %>
+      <div class="col-md-8 col-md-offset-1">
+        <%= f.hidden_field :user_id, value: current_user.id %>
+        <%= f.hidden_field :product_id, value: @product.id %>
+        <%= f.hidden_field :dataurl, value: comments_path %>
+        <%= f.text_area :content, class: "form-control required comment-box",
+          required: "true" %>
+      </div>
+      <div class="col-md-1">
+        <%= f.button t("comment"), class: "comment-button btn btn-primary",
+          type: :button %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

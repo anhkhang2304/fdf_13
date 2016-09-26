@@ -1,0 +1,15 @@
+<div class="comment-content">
+  <div class="col-md-1 image-user">
+    <%= image_tag comment.product.avatar.url %>
+  </div>
+  <div class="col-md-11">
+    <span class="user"><%= comment.user.name %></span>
+    <span class="truncate">
+      <%= comment.content %>
+    </span>
+    <span class="timestamp">
+      <%= time_ago_in_words(comment.created_at) %>
+      <%= t "ago" %>
+    </span>
+  </div>
+</div>

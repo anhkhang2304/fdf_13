@@ -7,7 +7,7 @@ class CreateProducts < ActiveRecord::Migration
       t.string :description
       t.string :avatar
       t.integer :quantity
-      t.float :rate
+      t.float :rate_score
 
       t.timestamps null: false
     end

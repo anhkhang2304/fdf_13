@@ -7,6 +7,8 @@
 //= require i18n.js
 //= require i18n/en
 //= require bootstrap-datepicker
+//= require jquery.raty
+//= require ratyrate
 //= require common.js
 //= require admin/bootstrap-dialog.js
 
@@ -101,6 +103,32 @@ $(document).on('ready page:load', function(){
 
   $('.alert-client').fadeOut(4000);
 
+});
+
+$(function(){
+  $('.comment-button').click(function(event){
+    $(this).hide();
+    $('.comment-button').show();
+  });
+
+  $('.comment-button').click(function (e){
+    e.preventDefault();
+    var theCom = $('.comment-box');
+    var rate = $('.rating .star').attr('data-rating');
+    if( !theCom.val() ){
+      alert(I18n.t('error_comment'));
+    } else {
+      $.ajax({
+        method: 'POST',
+        url: $('#comment_dataurl').val(),
+        data: $('#new_comment').serialize(),
+        success: function(data){
+          $('#list-comment').prepend(data);
+          $('.comment-box').val('');
+        }
+      });
+    }
+  });
 });
 
 function openDialogMsg(stitle, sMsg) {

@@ -35,6 +35,8 @@ class OrdersController < ClientController
       case params[:order][:status]
       when "pendding"
         @order.update_attributes status: :pendding
+        send_message @order
+        CartMailer.new_cart(@order).deliver_now
         session[:order_id] = nil
         flash[:success] = t "order.pay_success"
       when "cancel"

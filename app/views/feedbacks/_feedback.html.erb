@@ -1,0 +1,17 @@
+<% if user_signed_in? %>
+  <div class="form-feedback">
+    <%= form_for @feedback do |f| %>
+      <div class="col-md-8 col-md-offset-1">
+        <%= f.hidden_field :user_id, value: current_user.id %>
+        <%= f.hidden_field :dataurl, value: feedbacks_path %>
+        <%= f.text_area :name, class: "form-control required feedback-title",
+          required: "true" %>
+        <%= f.text_area :content, class: "form-control required feedback-content",
+          required: "true" %>
+      </div>
+      <div class="col-md-1">
+        <%= f.submit "Feedback", class: "feedback-button btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

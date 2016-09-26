@@ -8,6 +8,11 @@
   </div>
   <div class="portlet-body">
     <div class="grid-content">
+      <p>
+        <span class="text-danger"><%= t "created: "%></span>
+        <%= l @order.created_at, format: :long %>
+      </p>
+    </div>
       <div class="col-md-4 no-padding">
         <p>
           <span class="text-danger"><%= t "created: "%></span>

@@ -4,10 +4,16 @@
   <title></title>
   <%= stylesheet_link_tag "client", media: "all",
     "data-turbolinks-track": true %>
-  <%= javascript_include_tag "client", "data-turbolinks-track": true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div id="fb-root"></div>
+  <a href="#" class="go-top" style="display: inline;">
+    <i class="fa fa-arrow-up fa-lg" aria-hidden="true"></i>
+  </a>
+  <%= javascript_include_tag "sociation", "data-turbolinks-track": true %>
+  <%= javascript_include_tag "https://apis.google.com/js/platform.js", "data-turbolinks-track": true %>
+
   <div id="header">
     <%= render "partial/header_client" %>
   </div>
@@ -20,5 +26,6 @@
 
   </div>
 
+  <%= javascript_include_tag "client", "data-turbolinks-track": true %>
 </body>
 </html>

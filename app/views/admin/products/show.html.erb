@@ -24,7 +24,11 @@
           </p>
           <p>
             <span class="text-danger"><%= "#{t "product.rate"}:" %></span>
-            <%= @product.rate %>
+            <%= @product.average("rate").avg %>
+          </p>
+          <p>
+            <span class="text-danger"><%= "#{t "product.total_rate"}:" %></span>
+            <%= @product.rates("rate").count %>
           </p>
           <p>
             <span class="text-danger"><%= "#{t "created"}:" %></span>
