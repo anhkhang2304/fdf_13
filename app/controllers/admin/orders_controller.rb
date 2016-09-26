@@ -9,6 +9,11 @@ class Admin::OrdersController < AdminController
       .includes(:user).order(date_update: :desc)
       .page(params[:page]).per Settings.per_page
     @ord = get_index params[:page], Settings.per_page
+    download_file params[:download] if params[:download]
+    respond_to do |format|
+      format.html
+      format.csv {render text: @orders.to_csv}
+    end
   end
 
   def show
@@ -43,5 +48,12 @@ class Admin::OrdersController < AdminController
     if @order.nil?
       render file: "public/404.html", status: :not_found, layout: true
     end
+  end
+
+  def download_file download_option
+    filename = "product"
+    send_data Order.all.download_keys(keys),
+      type: "text/csv; charset=UTF-8; header=present",
+      disposition: "attachment; filename=#{filename}"
   end
 end

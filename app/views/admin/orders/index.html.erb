@@ -5,6 +5,11 @@
         <i class="fa fa-reorder"></i><%= t "manager" %>
       </span>
       <div class="action-container top pull-right">
+        <%= link_to "download CSV", admin_orders_path, class: "btn btn-success" %>
+        <%= link_to "download CSVhe",
+            :controller => "admin/Order",
+            :action => "index",
+            :car => car.attributes %>
       </div>
       <div class="clearfix"></div>
     </div>
