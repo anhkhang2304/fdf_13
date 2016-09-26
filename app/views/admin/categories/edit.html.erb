@@ -1,8 +1,1 @@
-<%= form_for [:admin, @category] do |f| %>
-  <div class="field">
-    <%= f.text_field :title, placeholder: t("title"),
-      required: "required", class: "form-control" %>
-    <%= f.text_area :description, placeholder: t("category.title"), rows: 8,
-      required: "required", class: "form-control" %>
-  </div>
-<% end %>
+<%= render "form" %>

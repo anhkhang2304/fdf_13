@@ -12,8 +12,6 @@ class Product < ActiveRecord::Base
   validates :category_id, presence: true
   validate :image_size_validation
 
-  ratyrate_rateable "rate"
-
   private
   def image_size_validation
     if avatar.size > Settings.avatar.bytes_image

@@ -5,7 +5,7 @@ class Admin::OrdersController < AdminController
 
   def index
     @q = Order.ransack params[:q]
-    @orders = @q.result
+    @orders = @q.result.where_status_for_admin
       .includes(:user).order(date_update: :desc)
       .page(params[:page]).per Settings.per_page
     @ord = get_index params[:page], Settings.per_page

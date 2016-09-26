@@ -1,0 +1,14 @@
+<%= form_for [:admin, @category] do |f| %>
+  <div class="field">
+    <div class="form-group">
+      <%= f.label :title, t("title"), class: "text-default" %>
+      <%= f.label :title, t("required"), class: "text-danger" %>
+      <%= f.text_field :title, placeholder: t("title"),
+        required: "required", class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.text_area :description, placeholder: t("product.description"), rows: 8,
+        class: "form-control" %>
+    </div>
+  </div>
+<% end %>

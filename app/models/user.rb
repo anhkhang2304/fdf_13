@@ -12,8 +12,6 @@ class User < ActiveRecord::Base
   validates :name, presence: true, length: {maximum: 50}
   validates :mobile, numericality: true, allow_blank: true
 
-  ratyrate_rater
-
   def self.from_omniauth auth
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
@@ -22,5 +20,9 @@ class User < ActiveRecord::Base
       user.provider = auth.provider
       user.uid = auth.uid
     end
+  end
+
+  def admin?
+    self.roles == 1
   end
 end

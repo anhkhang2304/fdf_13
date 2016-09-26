@@ -43,6 +43,11 @@ en:
   price: "Price"
   total: "Total"
   amount: "amount"
+  customer: "Customer"
+  home_page: "Home"
+  can_not_access_admin: "You are not logged in or do not have access!"
+  manager_system: "Manager system"
+  required: "* required"
   time:
     formats:
       short_date: "%m/%d/%Y"
