@@ -50,7 +50,7 @@ class OrdersController < ClientController
   end
 
   def destroy
-    if @order.status == "created"
+    if @order.status == Order.statuses[:created] || Order.statuses[:cancel]
       @order.destroy
       session[:order_id] = nil
       flash[:success] = t "delete_success"

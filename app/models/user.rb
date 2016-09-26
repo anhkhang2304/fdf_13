@@ -21,4 +21,8 @@ class User < ActiveRecord::Base
       user.uid = auth.uid
     end
   end
+
+  def admin?
+    self.roles == 1
+  end
 end

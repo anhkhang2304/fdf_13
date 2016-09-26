@@ -22,8 +22,11 @@
 //= require bootstrap-datepicker
 //= require jquery.raty
 //= require ratyrate
+//= require jquery.form-validator
 
 $(document).on('ready page:load', function(){
+  $.validate();
+
   var $tagNav = $('#nav-sider-left');
   $tagNav.navsider({ linkclick: true, cssClass: 'menu-bar', minHeight: 41 });
 

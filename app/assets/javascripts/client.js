@@ -12,6 +12,8 @@
 
 $(document).on('ready page:load', function(){
   $('.btn-add-cart').click(function(){
+    var $count = $('#count-order');
+    var current_quantity = parseInt($count.text());
     var dataurl = $(this).data('url');
     var product_id = $(this).data('id');
     $.ajax({
@@ -22,10 +24,15 @@ $(document).on('ready page:load', function(){
       if(data.msg == "login"){
         openDialogMsg("warning!","Please login! <a href="+data.url+">Login?</a>");
       }
+      else{
+        $count.text(current_quantity+1);
+      }
     });
   });
 
   $('.btn-add-product').click(function(){
+    var $count = $('#count-order');
+    var current_quantity = parseInt($count.text());
     var dataurl = $(this).data('url');
     var product_id = $(this).data('id');
     var order = $(this).data('order');
@@ -43,11 +50,14 @@ $(document).on('ready page:load', function(){
       if(data.msg == "add"){
         $('#quantity-'+product_id).text(quantity+1);
         $('.total-'+product_id).text(parseFloat(data.price)*(quantity+1));
+        $count.text(current_quantity+1);
       }
     });
   });
 
   $('.btn-sub-product').click(function(){
+    var $count = $('#count-order');
+    var current_quantity = parseInt($count.text());
     var dataurl = $(this).data('url');
     var product_id = $(this).data('id');
     var order = $(this).data('order');
@@ -65,11 +75,14 @@ $(document).on('ready page:load', function(){
       if(data.msg == "sub"){
         $('#quantity-'+product_id).text(quantity-1);
         $('.total-'+product_id).text(parseFloat(data.price)*(quantity-1));
+        $count.text(current_quantity-1);
       }
     });
   });
 
   $('.del-product-order').click(function(){
+    var $count = $('#count-order');
+    var current_quantity = parseInt($count.text());
     var product_id = $(this).data('product');
     var order_id = $(this).data('order');
     var url_del = $(this).data('url');
@@ -80,6 +93,7 @@ $(document).on('ready page:load', function(){
         data: {product_id: product_id, order_id: order_id},
         method: "DELETE"
       }).done(function(data) {
+        $count.text(current_quantity - parseInt($('#quantity-'+product_id).text()));
         $('.tr-'+product_id).remove();
       });
     }
