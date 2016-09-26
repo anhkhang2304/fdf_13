@@ -12,7 +12,8 @@ class Admin::OrdersController < AdminController
     download_file params[:download] if params[:download]
     respond_to do |format|
       format.html
-      format.csv {render text: @orders.to_csv}
+      format.csv {send_data @orders.to_csv}
+      format.xlsx {render xlsx: 'index',filename: "orders.xlsx"}
     end
   end
 

@@ -17,6 +17,15 @@ class Order < ActiveRecord::Base
     end.sum
   end
 
+  def self.to_csv
+    CSV.generate do |csv|
+      csv << column_names
+      all.each do |order|
+        csv << order.attributes.values_at(*column_names)
+      end
+    end
+  end
+
   def download_keys keys
     CSV.generate do |csv|
       csv << column_names
