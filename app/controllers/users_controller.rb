@@ -3,6 +3,18 @@ class UsersController < ApplicationController
 
   before_action :load_user, only: :show
 
+  def index
+    @q = User.ransack params[:q]
+    @users = @q.result
+      .order(created_at: :desc).page(params[:page])
+      .per Settings.per_page
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml { render xml: @users }
+      format.json { render json: @users, status: 200, content_type: "text/json" }
+    end
+  end
+
   def show
   end
 

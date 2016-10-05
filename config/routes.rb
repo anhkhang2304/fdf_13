@@ -9,8 +9,9 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :show, :destroy]
   end
   devise_for :users, controllers: {omniauth_callbacks: "users/omniauth_callbacks"}
-  resources :users, only: :show
+  resources :users, only: [:show, :index]
   resources :products, only: [:index, :show]
   resources :orders
   resources :detail_orders, only: [:create]
+  mount API => '/'
 end
